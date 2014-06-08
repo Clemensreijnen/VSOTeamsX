@@ -25,7 +25,7 @@ namespace VSOTeams.Views
 
             var homeNav = new NavigationPage(master.PageSelection)
             {
-                Tint = Helpers.Colours.LightBlue
+                Tint = Helpers.Color.DarkBlue.ToFormsColor()
             };
             Detail = homeNav;
 
@@ -42,7 +42,7 @@ namespace VSOTeams.Views
                 {
                     newPage = new NavigationPage(master.PageSelection)
                     {
-                        Tint = Helpers.Colours.BackgroundGrey
+                        Tint = Helpers.Color.DarkBlue.ToFormsColor()
                     };
                     pages.Add(menuType, newPage);
                 }
@@ -53,6 +53,7 @@ namespace VSOTeams.Views
 
             this.Icon = "slideout.png";
         }
+
     }
 
 
@@ -75,18 +76,18 @@ namespace VSOTeams.Views
         private TeamsView teams;
         private RoomsView rooms;
         private ProjectsView projects;
+        private LoginView login;
         public HomeMasterView(HomeViewModel viewModel)
         {
             this.Icon = "slideout.png";
             BindingContext = viewModel;
-
 
             var layout = new StackLayout { Spacing = 0 };
 
             var label = new ContentView
             {
                 Padding = new Thickness(10, 36, 0, 5),
-                BackgroundColor = Color.Transparent,
+                BackgroundColor = Xamarin.Forms.Color.Transparent,
                 Content = new Label
                 {
                     Text = "MENU",
@@ -144,7 +145,22 @@ namespace VSOTeams.Views
                 }
             };
 
-            listView.SelectedItem = viewModel.MenuItems[0];
+            LoginInfo _credentials = new LoginInfo();
+            App.IsLoggedIn = _credentials.CanLogin();
+
+            if (App.IsLoggedIn)
+            {
+                listView.SelectedItem = viewModel.MenuItems[0];
+            }
+            else
+            {
+                if (login == null)
+                    login = new LoginView();
+
+                PageSelection = login;
+            }
+
+            
             layout.Children.Add(listView);
 
             Content = layout;

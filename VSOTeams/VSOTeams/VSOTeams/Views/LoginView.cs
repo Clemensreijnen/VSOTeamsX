@@ -26,8 +26,8 @@ namespace VSOTeams.Views
             {
                 Text = "Login",
                 BorderRadius = 5,
-                TextColor = Colours.LightBlue,
-                BackgroundColor = Colours.BackgroundGrey
+                TextColor = Helpers.Color.Blue.ToFormsColor(),
+                BackgroundColor = Helpers.Color.DarkBlue.ToFormsColor()
             };
             loginButton.Clicked += LogMeIn;
 

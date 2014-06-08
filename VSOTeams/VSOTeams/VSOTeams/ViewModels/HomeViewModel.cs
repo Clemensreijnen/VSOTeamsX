@@ -28,14 +28,14 @@ namespace VSOTeams.ViewModels
                 Id = 1,
                 Title = "Rooms",
                 MenuType = MenuType.Rooms,
-                Icon = "blog.png"
+                Icon = "about.png"
             });
             MenuItems.Add(new HomeMenuItem
             {
                 Id = 2,
                 Title = "Projects",
                 MenuType = MenuType.Projects,
-                Icon = "twitternav.png"
+                Icon = "about.png"
             });
             MenuItems.Add(new HomeMenuItem
             {
