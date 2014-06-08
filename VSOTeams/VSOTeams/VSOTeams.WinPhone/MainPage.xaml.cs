@@ -20,7 +20,7 @@ namespace VSOTeams.WinPhone
             InitializeComponent();
 
             Forms.Init();
-            Content = VSOTeams.App.GetMainPage().ConvertPageToUIElement(this);
+            Content = VSOTeams.App.RootPage.ConvertPageToUIElement(this);
         }
     }
 }

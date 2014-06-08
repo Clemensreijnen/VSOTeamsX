@@ -17,7 +17,6 @@ namespace VSOTeams.iOS
     {
         // class-level declarations
         UIWindow window;
-
         //
         // This method is invoked when the application has loaded and is ready to run. In this 
         // method you should instantiate the window, load the UI into it and then make the window
@@ -30,8 +29,12 @@ namespace VSOTeams.iOS
             Forms.Init();
 
             window = new UIWindow(UIScreen.MainScreen.Bounds);
+            UINavigationBar.Appearance.SetTitleTextAttributes(new UITextAttributes()
+            {
+                TextColor = UIColor.White
+            });
 
-            window.RootViewController = App.GetMainPage().CreateViewController();
+            window.RootViewController = App.RootPage.CreateViewController();
 
             window.MakeKeyAndVisible();
 

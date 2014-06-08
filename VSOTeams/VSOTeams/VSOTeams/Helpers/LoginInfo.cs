@@ -9,11 +9,25 @@ namespace VSOTeams.Helpers
 {
     class LoginInfo : INotifyPropertyChanged
     {
-        Color _loginColour = Color.Gray;
+        string _account = string.Empty;
         string _password = string.Empty;
         string _username = string.Empty;
-        string _account = string.Empty;
 
+        public string Account
+        {
+            get { return _account; }
+            set
+            {
+                if (_account.Equals(value, StringComparison.Ordinal))
+                {
+                    return;
+                }
+                _account = value ?? string.Empty;
+                OnPropertyChanged();
+
+                CanLogin();
+            }
+        }
         public string UserName
         {
             get { return _username; }
@@ -45,41 +59,9 @@ namespace VSOTeams.Helpers
             }
         }
 
-        public string Account
-        {
-            get { return _account; }
-            set
-            {
-                if (_account.Equals(value, StringComparison.Ordinal))
-                {
-                    return;
-                }
-                _account = value ?? string.Empty;
-                OnPropertyChanged();
-
-                CanLogin();
-            }
-        }
 
 
-        /// <summary>
-        ///   Gets or sets the login button colour.
-        /// </summary>
-        /// <value>The login button colour.</value>
-        public Color LoginButtonColour
-        {
-            set
-            {
-                //if (_loginColour == value)
-                //{
-                //    return;
-                //}
-                //_loginColour = value;
-                OnPropertyChanged();
-            }
-
-            get { return _loginColour; }
-        }
+      
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
@@ -89,8 +71,7 @@ namespace VSOTeams.Helpers
         /// <returns><c>true</c> if the user can login; otherwise, <c>false</c>.</returns>
         public bool CanLogin()
         {
-            bool login = !string.IsNullOrWhiteSpace(_username) && !string.IsNullOrWhiteSpace(_password);
-            LoginButtonColour = login ? Color.DarkBlue : Color.Green;
+            bool login = !string.IsNullOrWhiteSpace(_account) && !string.IsNullOrWhiteSpace(_username) && !string.IsNullOrWhiteSpace(_password);
             return login;
         }
 
