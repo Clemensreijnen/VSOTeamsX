@@ -13,7 +13,10 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "VSOTeams", "VSOTeams\VSOTea
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		VSOTeams\VSOTeams\VSOTeams.projitems*{e1c2a20f-97fa-477c-badf-b5d432bbe69c}*SharedItemsImports = 4
+		VSOTeams\VSOTeams\VSOTeams.projitems*{b4e99bce-db11-4ddb-927f-83d847a812ce}*SharedItemsImports = 4
 		VSOTeams\VSOTeams\VSOTeams.projitems*{d0c89685-b52b-4c1f-907c-468d598cda5f}*SharedItemsImports = 13
+		VSOTeams\VSOTeams\VSOTeams.projitems*{7adaf899-e0cb-4764-92e0-f4103559b0d9}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
