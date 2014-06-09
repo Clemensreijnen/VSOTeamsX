@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace VSOTeams.Helpers
@@ -25,7 +26,7 @@ namespace VSOTeams.Helpers
                 _account = value ?? string.Empty;
                 OnPropertyChanged();
 
-                CanLogin();
+                //CanLogin();
             }
         }
         public string UserName
@@ -40,7 +41,7 @@ namespace VSOTeams.Helpers
                 _username = value ?? string.Empty;
                 OnPropertyChanged();
 
-                CanLogin();
+                //CanLogin();
             }
         }
         public string Password
@@ -55,7 +56,7 @@ namespace VSOTeams.Helpers
                 _password = value ?? string.Empty;
                 OnPropertyChanged();
 
-                CanLogin();
+                //CanLogin();
             }
         }
 
@@ -69,11 +70,35 @@ namespace VSOTeams.Helpers
         ///   Will set the .LoginButtonColour to a Light Blue if the user can login.
         /// </summary>
         /// <returns><c>true</c> if the user can login; otherwise, <c>false</c>.</returns>
-        public bool CanLogin()
+        public async Task<bool> CanLogin()
         {
-            bool login = !string.IsNullOrWhiteSpace(_account) && !string.IsNullOrWhiteSpace(_username) && !string.IsNullOrWhiteSpace(_password);
-            return login;
+            bool allFilled = !string.IsNullOrWhiteSpace(_account) && !string.IsNullOrWhiteSpace(_username) && !string.IsNullOrWhiteSpace(_password);
+            if(allFilled == false)
+                return false;
+
+            bool valideCredentials = await HttpClientHelper.IsValideCredential();
+            if (valideCredentials == false)
+                return false;
+
+            this.SaveCredentials();
+            return true;
         }
+
+        private void SaveCredentials()
+        {
+            throw new NotImplementedException();
+        }
+
+      
+        internal void LoadCredentials()
+        {
+          
+
+            this._account = "Sogeti";
+            this._password = "Sogeti.1";
+            this._username = "VSOAppDev";
+        }
+
 
         /// <summary>
         ///   Helper method that will raise the PropertyChanged event when a property is changed.
@@ -90,5 +115,7 @@ namespace VSOTeams.Helpers
                 handler(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+
     }
 }

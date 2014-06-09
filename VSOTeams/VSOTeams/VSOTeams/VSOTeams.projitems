@@ -24,6 +24,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\HomeViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\AboutView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\BaseView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\HomeMasterView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\HomeView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\LoginView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\ProjectsView.cs" />

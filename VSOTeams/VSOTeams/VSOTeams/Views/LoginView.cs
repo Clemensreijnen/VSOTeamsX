@@ -46,9 +46,11 @@ namespace VSOTeams.Views
         }
         async void LogMeIn(object sender, EventArgs eventArgs)
         {
-            if (_credentials.CanLogin() == true)
+            var credentialsOK = await _credentials.CanLogin();
+            if (credentialsOK == true)
             {
-                //inlggen
+                // de hele boel laden
+
             }
 
             await Navigation.PopAsync();
