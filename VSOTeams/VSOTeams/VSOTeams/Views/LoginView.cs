@@ -1,37 +1,46 @@
 ﻿using System;
 using VSOTeams.Helpers;
+using VSOTeams.ViewModels;
 using Xamarin.Forms;
 
 namespace VSOTeams.Views
 {
-    class LoginView : ContentPage
+    class LoginView : BaseView
     {
-        readonly LoginInfo _credentials = new LoginInfo();
+        private LoginViewModel ViewModel
+        {
+            get { return BindingContext as LoginViewModel; }
+        }
+
+        //readonly LoginInfo _credentials = new LoginInfo();
         public LoginView()
         {
             Padding = new Thickness(20);
             Title = "Login";
-            BindingContext = _credentials;
+            BindingContext = new LoginViewModel();
 
             Entry accountInput = new Entry { Placeholder = "VSO Account" };
-            accountInput.SetBinding(Entry.TextProperty, "Account");
+            accountInput.SetBinding(Entry.TextProperty, "Credentials.Account");
+            
 
             Entry loginInput = new Entry { Placeholder = "User Name" };
-            loginInput.SetBinding(Entry.TextProperty, "UserName");
+            loginInput.SetBinding(Entry.TextProperty, "Credentials.UserName");
+            
 
             Entry passwordInput = new Entry { IsPassword = true, Placeholder = "Password" };
-            passwordInput.SetBinding(Entry.TextProperty, "Password");
+            passwordInput.SetBinding(Entry.TextProperty, "Credentials.Password");
+        
 
             Button loginButton = new Button
             {
                 Text = "Login",
                 BorderRadius = 5,
                 TextColor = Helpers.Color.Blue.ToFormsColor(),
-                BackgroundColor = Helpers.Color.DarkBlue.ToFormsColor()
+                BackgroundColor = Helpers.Color.DarkBlue.ToFormsColor(),
+                Command = ViewModel.LogMeIn
             };
-            loginButton.Clicked += LogMeIn;
 
-            Content = new StackLayout
+            var stack = new StackLayout
             {
                 VerticalOptions = LayoutOptions.Center,
                 Children =
@@ -43,23 +52,18 @@ namespace VSOTeams.Views
                           },
                 Spacing = 10,
             };
-        }
-        async void LogMeIn(object sender, EventArgs eventArgs)
-        {
-            ActivityIndicator ai = new ActivityIndicator();
-            ai.BackgroundColor = VSOTeams.Helpers.Color.LightGray.ToFormsColor();
 
-            Content = ai;
-           
-            var credentialsOK = await _credentials.CanLogin();
-            if (credentialsOK == true)
+            var activity = new ActivityIndicator
             {
-                // de hele boel laden
+                Color = Helpers.Color.DarkBlue.ToFormsColor(),
+                IsEnabled = true
+            };
+            activity.SetBinding(ActivityIndicator.IsVisibleProperty, "IsBusy");
+            activity.SetBinding(ActivityIndicator.IsRunningProperty, "IsBusy");
 
-            }
+            stack.Children.Add(activity);
 
-            await Navigation.PopAsync();
-
+            Content = stack;
         }
     }
 }

@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace VSOTeams.Helpers
 {
-    class LoginInfo : INotifyPropertyChanged
+    public class LoginInfo : INotifyPropertyChanged
     {
         Settings credentialSetttings = new Settings();
         string _account = string.Empty;
