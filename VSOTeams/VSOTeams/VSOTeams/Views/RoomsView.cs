@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace VSOTeams.Views
 {
-    class RoomsView : ContentPage
+    public class RoomsView : BaseView
     {
     }
 }

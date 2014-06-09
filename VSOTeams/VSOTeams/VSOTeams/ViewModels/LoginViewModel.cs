@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Collections.Generic;
 using System.Linq;
 using VSOTeams.Helpers;
+using VSOTeams.Views;
 
 namespace VSOTeams.ViewModels
 {
@@ -42,17 +43,31 @@ namespace VSOTeams.ViewModels
                 var credentialsOK = await credentials.CanLogin();
                 if (credentialsOK == true)
                 {
+                    App.IsLoggedIn = true;
                     // de hele boel laden
 
+                    IsBusy = false;
+                    GetMainPage();
+                }
+                else
+                {
+                    IsBusy = false;
                 }
                
             }
             catch (Exception ex)
             {
-               
+                var page = new ContentPage();
+                var error = page.DisplayAlert("Error", string.Format("Unable to connect to VSO. {0}", ex.InnerException), "OK", null).Result;
+                IsBusy = false;
             }
-
-            IsBusy = false;
         }
+
+        public static Page GetMainPage()
+        {
+            var home = new HomeView();
+            return new NavigationPage(home);
+        }
+
     }
 }

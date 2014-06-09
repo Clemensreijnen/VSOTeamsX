@@ -14,11 +14,11 @@ namespace VSOTeams.Views
                 Spacing = 10
             };
 
-            var image = new Image();
-            image.Source = ImageSource.FromFile("scott.png");
-            image.Aspect = Aspect.AspectFill;
+            //var image = new Image();
+            //image.Source = ImageSource.FromFile("scott.png");
+            //image.Aspect = Aspect.AspectFill;
 
-            stack.Children.Add(image);
+            //stack.Children.Add(image);
 
             var stack2 = new StackLayout
             {

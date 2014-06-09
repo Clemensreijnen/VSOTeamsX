@@ -5,14 +5,13 @@ using Xamarin.Forms;
 
 namespace VSOTeams.Views
 {
-    class LoginView : BaseView
+    public class LoginView : BaseView
     {
         private LoginViewModel ViewModel
         {
             get { return BindingContext as LoginViewModel; }
         }
 
-        //readonly LoginInfo _credentials = new LoginInfo();
         public LoginView()
         {
             Padding = new Thickness(20);
