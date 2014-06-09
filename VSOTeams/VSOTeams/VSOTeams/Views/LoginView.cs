@@ -46,6 +46,11 @@ namespace VSOTeams.Views
         }
         async void LogMeIn(object sender, EventArgs eventArgs)
         {
+            ActivityIndicator ai = new ActivityIndicator();
+            ai.BackgroundColor = VSOTeams.Helpers.Color.LightGray.ToFormsColor();
+
+            Content = ai;
+           
             var credentialsOK = await _credentials.CanLogin();
             if (credentialsOK == true)
             {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Refractored.Xam.Settings;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -10,13 +11,18 @@ namespace VSOTeams.Helpers
 {
     class LoginInfo : INotifyPropertyChanged
     {
+        Settings credentialSetttings = new Settings();
         string _account = string.Empty;
         string _password = string.Empty;
         string _username = string.Empty;
 
         public string Account
         {
-            get { return _account; }
+            get
+            {
+                _account = credentialSetttings.GetValueOrDefault("VSOAccount", string.Empty);
+                return _account; 
+            }
             set
             {
                 if (_account.Equals(value, StringComparison.Ordinal))
@@ -24,29 +30,40 @@ namespace VSOTeams.Helpers
                     return;
                 }
                 _account = value ?? string.Empty;
+                credentialSetttings.AddOrUpdateValue("VSOAccount", _account);
                 OnPropertyChanged();
 
-                //CanLogin();
+                //this.SaveCredentials();
             }
         }
         public string UserName
         {
-            get { return _username; }
+            get 
+            {
+                _username = credentialSetttings.GetValueOrDefault("VSOUserName", string.Empty);
+                return _username; 
+            }
             set
             {
                 if (_username.Equals(value, StringComparison.Ordinal))
                 {
                     return;
                 }
+
                 _username = value ?? string.Empty;
+                credentialSetttings.AddOrUpdateValue("VSOUserName", _username);
                 OnPropertyChanged();
 
-                //CanLogin();
+              //  this.SaveCredentials();
             }
         }
         public string Password
         {
-            get { return _password; }
+            get 
+            {
+                _password= credentialSetttings.GetValueOrDefault("VSOPassWord", string.Empty);
+                return _password; 
+            }
             set
             {
                 if (_password.Equals(value, StringComparison.Ordinal))
@@ -54,9 +71,8 @@ namespace VSOTeams.Helpers
                     return;
                 }
                 _password = value ?? string.Empty;
+                credentialSetttings.AddOrUpdateValue("VSOPassWord", _password);
                 OnPropertyChanged();
-
-                //CanLogin();
             }
         }
 
@@ -72,6 +88,7 @@ namespace VSOTeams.Helpers
         /// <returns><c>true</c> if the user can login; otherwise, <c>false</c>.</returns>
         public async Task<bool> CanLogin()
         {
+            
             bool allFilled = !string.IsNullOrWhiteSpace(_account) && !string.IsNullOrWhiteSpace(_username) && !string.IsNullOrWhiteSpace(_password);
             if(allFilled == false)
                 return false;
@@ -80,23 +97,8 @@ namespace VSOTeams.Helpers
             if (valideCredentials == false)
                 return false;
 
-            this.SaveCredentials();
+            credentialSetttings.Save();
             return true;
-        }
-
-        private void SaveCredentials()
-        {
-            throw new NotImplementedException();
-        }
-
-      
-        internal void LoadCredentials()
-        {
-          
-
-            this._account = "Sogeti";
-            this._password = "Sogeti.1";
-            this._username = "VSOAppDev";
         }
 
 
