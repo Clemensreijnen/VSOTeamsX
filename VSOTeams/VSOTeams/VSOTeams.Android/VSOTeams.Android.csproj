@@ -98,16 +98,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
-    <BundleResource Include="Resources\Drawable\slideout.png" />
-    <BundleResource Include="Resources\Drawable\drawable-hdpi\about.png" />
-    <BundleResource Include="Resources\Drawable\drawable-hdpi\refresh.png" />
-    <BundleResource Include="Resources\Drawable\drawable-mdpi\about.png" />
-    <BundleResource Include="Resources\Drawable\drawable-mdpi\refresh.png" />
-    <BundleResource Include="Resources\Drawable\drawable-xhdpi\about.png" />
-    <BundleResource Include="Resources\Drawable\drawable-xhdpi\refresh.png" />
-    <BundleResource Include="Resources\Drawable\drawable-xxhdpi\about.png" />
-    <BundleResource Include="Resources\Drawable\drawable-xxhdpi\refresh.png" />
+    <AndroidResource Include="Resources\Drawable\slideout.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\about.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\refresh.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\about.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\refresh.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\about.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\refresh.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\about.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\refresh.png" />
     <Content Include="Properties\_SettingsStarted.txt" />
+    <AndroidResource Include="Resources\Drawable\about.png" />
+    <AndroidResource Include="Resources\Drawable\refresh.png" />
   </ItemGroup>
   <Import Project="..\VSOTeams\VSOTeams.projitems" Label="Shared" Condition="Exists('..\VSOTeams\VSOTeams.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

@@ -29,7 +29,7 @@ namespace VSOTeams.Views
                     {
                         new ImageCell
                         {
-                            ImageSource =  "People.png",
+                            ImageSource =  "refresh.png",
                             Text = "Teams",
                             Detail = "All my teams",
                             Command = new Command(async () => 
@@ -38,7 +38,7 @@ namespace VSOTeams.Views
                         },
                         new ImageCell
                         {
-                            ImageSource =  "Login-Door.png",
+                            ImageSource =  "about.png",
                             Text = "Rooms",
                             Detail = "Availalbe teamrooms",
                             Command = new Command(async () => 
