@@ -93,11 +93,6 @@ namespace VSOTeams.Helpers
             if(allFilled == false)
                 return false;
 
-            bool valideCredentials = await HttpClientHelper.IsValideCredential();
-            if (valideCredentials == false)
-                return false;
-
-            //credentialSetttings.Save();
             return true;
         }
 

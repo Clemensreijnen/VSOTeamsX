@@ -22,7 +22,7 @@ namespace VSOTeams.Views
 
             TableView tableView = new TableView
             {
-                Intent = TableIntent.Form,
+                Intent = TableIntent.Menu,
                 Root = new TableRoot
                 {
                     new TableSection

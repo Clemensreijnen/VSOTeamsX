@@ -17,13 +17,17 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Team.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TeamMember.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TeamRoom.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\TeamRoomMessage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LoginViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ProjectsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\RoomsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\AboutView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\BaseView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\HomeView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\LoginView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\ProjectsView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\RoomMessagesView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\RoomsView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\TeamsView.cs" />
   </ItemGroup>
