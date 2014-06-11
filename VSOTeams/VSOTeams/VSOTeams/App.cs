@@ -16,7 +16,7 @@ namespace VSOTeams
         public static Page RootPage
         {
 
-            get { return homeView ?? (homeView = new HomeView()); }
+            get { return homeView ?? (homeView = new NavigationPage(new HomeView())); }
         }
 	}
 }

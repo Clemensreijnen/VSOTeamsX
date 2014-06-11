@@ -10,7 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Colours.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Color.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\HttpClientHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\LoginInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Project.cs" />

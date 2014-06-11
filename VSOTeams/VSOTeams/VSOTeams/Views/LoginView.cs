@@ -64,5 +64,7 @@ namespace VSOTeams.Views
 
             Content = stack;
         }
+
+        
     }
 }

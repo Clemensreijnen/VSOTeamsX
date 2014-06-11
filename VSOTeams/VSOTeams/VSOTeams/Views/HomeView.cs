@@ -13,64 +13,37 @@ namespace VSOTeams.Views
 
         public HomeView()
         {
-            Command<Type> navigateCommand = 
-                new Command<Type>(async (Type pageType) =>
-                {
-                    // Get all the constructors of the page type.
-                    IEnumerable<ConstructorInfo> constructors = 
-                            pageType.GetTypeInfo().DeclaredConstructors;
-
-                    foreach (ConstructorInfo constructor in constructors)
-                    {
-                        // Check if the constructor has no parameters.
-                        if (constructor.GetParameters().Length == 0)
-                        {
-                            // If so, instantiate it, and navigate to it.
-                            Page page = (Page)constructor.Invoke(null);
-                            await this.Navigation.PushAsync(page);
-                            break;
-                        }
-                    }
-                });
-
             Label header = new Label
             {
                 Text = "VSO Teams",
-                Font = Font.BoldSystemFontOfSize(50),
+                Font = Font.SystemFontOfSize(NamedSize.Large),
                 HorizontalOptions = LayoutOptions.Center
             };
 
             TableView tableView = new TableView
             {
                 Intent = TableIntent.Form,
-                Root = new TableRoot("")
+                Root = new TableRoot
                 {
-                    new TableSection("")
+                    new TableSection
                     {
                         new ImageCell
                         {
-                            ImageSource =  "about.png",
+                            ImageSource =  "People.png",
                             Text = "Teams",
                             Detail = "All my teams",
-                            Command = navigateCommand,
-                            CommandParameter = typeof(TeamsView)
+                            Command = new Command(async () => 
+                                    await Navigation.PushAsync(new TeamsView()))
+                            
                         },
                         new ImageCell
                         {
-                            ImageSource =  "about.png",
+                            ImageSource =  "Login-Door.png",
                             Text = "Rooms",
                             Detail = "Availalbe teamrooms",
-                            Command = navigateCommand,
-                            CommandParameter = typeof(RoomsView)
+                            Command = new Command(async () => 
+                                    await Navigation.PushAsync(new RoomsView()))
                         },
-                        new ImageCell
-                        {
-                            ImageSource =  "about.png",
-                            Text = "Projects",
-                            Detail = "My projects",
-                            Command = navigateCommand,
-                            CommandParameter = typeof(ProjectsView)
-                        }
                     }
                 }
             };
@@ -86,6 +59,16 @@ namespace VSOTeams.Views
                 }
             };
         }
-            
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            LoginInfo credentials = new LoginInfo();
+
+            if (credentials.Account == "" || credentials.UserName == "" || credentials.Password == "")
+            {
+                this.Navigation.PushAsync(new LoginView());
+            }
+        }
     }
 }

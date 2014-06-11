@@ -1,4 +1,4 @@
-﻿using Refractored.Xam.Settings;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,16 +11,16 @@ namespace VSOTeams.Helpers
 {
     public class LoginInfo : INotifyPropertyChanged
     {
-        Settings credentialSetttings = new Settings();
-        string _account = string.Empty;
-        string _password = string.Empty;
-        string _username = string.Empty;
+        //Settings credentialSetttings = new Settings();
+        string _account = "Sogeti";
+        string _password = "Sogeti.1";
+        string _username = "VSOAppDev";
 
         public string Account
         {
             get
             {
-                _account = credentialSetttings.GetValueOrDefault("VSOAccount", string.Empty);
+                //_account = credentialSetttings.GetValueOrDefault("VSOAccount", string.Empty);
                 return _account; 
             }
             set
@@ -30,7 +30,7 @@ namespace VSOTeams.Helpers
                     return;
                 }
                 _account = value ?? string.Empty;
-                credentialSetttings.AddOrUpdateValue("VSOAccount", _account);
+                //credentialSetttings.AddOrUpdateValue("VSOAccount", _account);
                 OnPropertyChanged();
 
                 //this.SaveCredentials();
@@ -40,7 +40,7 @@ namespace VSOTeams.Helpers
         {
             get 
             {
-                _username = credentialSetttings.GetValueOrDefault("VSOUserName", string.Empty);
+                //_username = credentialSetttings.GetValueOrDefault("VSOUserName", string.Empty);
                 return _username; 
             }
             set
@@ -51,7 +51,7 @@ namespace VSOTeams.Helpers
                 }
 
                 _username = value ?? string.Empty;
-                credentialSetttings.AddOrUpdateValue("VSOUserName", _username);
+                //credentialSetttings.AddOrUpdateValue("VSOUserName", _username);
                 OnPropertyChanged();
 
               //  this.SaveCredentials();
@@ -61,7 +61,7 @@ namespace VSOTeams.Helpers
         {
             get 
             {
-                _password= credentialSetttings.GetValueOrDefault("VSOPassWord", string.Empty);
+                //_password= credentialSetttings.GetValueOrDefault("VSOPassWord", string.Empty);
                 return _password; 
             }
             set
@@ -71,7 +71,7 @@ namespace VSOTeams.Helpers
                     return;
                 }
                 _password = value ?? string.Empty;
-                credentialSetttings.AddOrUpdateValue("VSOPassWord", _password);
+                //credentialSetttings.AddOrUpdateValue("VSOPassWord", _password);
                 OnPropertyChanged();
             }
         }
@@ -97,7 +97,7 @@ namespace VSOTeams.Helpers
             if (valideCredentials == false)
                 return false;
 
-            credentialSetttings.Save();
+            //credentialSetttings.Save();
             return true;
         }
 
