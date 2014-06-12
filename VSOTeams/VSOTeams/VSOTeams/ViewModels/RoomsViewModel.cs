@@ -13,16 +13,12 @@ namespace VSOTeams.ViewModels
 {
     public class RoomsViewModel : BaseViewModel
     {
+        public ObservableCollection<TeamRoom> TeamRooms { get; set; }
+
         public RoomsViewModel()
         {
             Title = "TeamRooms";
-        }
-        private ObservableCollection<TeamRoom> teamRooms = new ObservableCollection<TeamRoom>();
-
-        public ObservableCollection<TeamRoom> TeamRooms
-        {
-            get { return teamRooms; }
-            set { teamRooms = value; OnPropertyChanged("TeamRooms"); }
+            TeamRooms = new ObservableCollection<TeamRoom>();
         }
 
         private Project selectedTeamRoom;
@@ -40,10 +36,10 @@ namespace VSOTeams.ViewModels
 
         public Command LoadTeamRoomCommand
         {
-            get { return loadTeamRoomsCommand ?? (loadTeamRoomsCommand = new Command(async () => await ExecuteLoadTeamRoomsCommand())); }
+            get { return loadTeamRoomsCommand ?? (loadTeamRoomsCommand = new Command(ExecuteLoadTeamRoomsCommand)); }
         }
 
-        private async Task ExecuteLoadTeamRoomsCommand()
+        private async void ExecuteLoadTeamRoomsCommand()
         {
             if (IsBusy)
                 return;
@@ -52,6 +48,9 @@ namespace VSOTeams.ViewModels
 
             try
             {
+                TeamRooms.Clear();
+
+
                 HttpClientHelper helper = new HttpClientHelper();
                 LoginInfo _credentials = new LoginInfo();
 
@@ -65,7 +64,15 @@ namespace VSOTeams.ViewModels
                 string responseBody = await response.Content.ReadAsStringAsync();
 
                 TeamRooms allTeamRooms = JsonConvert.DeserializeObject<TeamRooms>(responseBody);
-                teamRooms = allTeamRooms.value;
+                
+                var roomsImage = new Image { Source = new FileImageSource { File = "room.png" } };
+                foreach (var room in allTeamRooms.value)
+                {
+                    room.ImageUri = roomsImage.Source;
+                    room.lastActivity = String.Format("Last activity on: {0:ddd, MMM d}", Convert.ToDateTime(room.lastActivity));              
+                    TeamRooms.Add(room);
+                }
+
             }
             catch (Exception ex)
             {

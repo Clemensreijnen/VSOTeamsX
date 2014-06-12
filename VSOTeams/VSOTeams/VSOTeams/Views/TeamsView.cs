@@ -7,5 +7,9 @@ namespace VSOTeams.Views
 {
     public class TeamsView : BaseView
     {
+        //private TeamsViewModel ViewModel
+        //{
+        //    get { return BindingContext as RoomsViewModel; }
+        //}
     }
 }

@@ -13,6 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\Color.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\HttpClientHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\LoginInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\RoomsCell.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Project.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Team.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TeamMember.cs" />

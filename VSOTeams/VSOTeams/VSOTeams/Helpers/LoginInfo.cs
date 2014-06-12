@@ -86,7 +86,7 @@ namespace VSOTeams.Helpers
         ///   Will set the .LoginButtonColour to a Light Blue if the user can login.
         /// </summary>
         /// <returns><c>true</c> if the user can login; otherwise, <c>false</c>.</returns>
-        public async Task<bool> CanLogin()
+        public bool CanLogin()
         {
             
             bool allFilled = !string.IsNullOrWhiteSpace(_account) && !string.IsNullOrWhiteSpace(_username) && !string.IsNullOrWhiteSpace(_password);

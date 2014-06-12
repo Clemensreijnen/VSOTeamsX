@@ -110,6 +110,11 @@
     <Content Include="Properties\_SettingsStarted.txt" />
     <AndroidResource Include="Resources\Drawable\about.png" />
     <AndroidResource Include="Resources\Drawable\refresh.png" />
+    <AndroidResource Include="Resources\Drawable\room.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\room.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\room.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\room.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\room.png" />
   </ItemGroup>
   <Import Project="..\VSOTeams\VSOTeams.projitems" Label="Shared" Condition="Exists('..\VSOTeams\VSOTeams.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

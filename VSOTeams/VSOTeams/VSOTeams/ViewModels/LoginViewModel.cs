@@ -40,7 +40,7 @@ namespace VSOTeams.ViewModels
 
             try
             {
-                var credentialsOK = await credentials.CanLogin();
+                var credentialsOK = credentials.CanLogin();
                 if (credentialsOK == true)
                 {
                     App.IsLoggedIn = true;

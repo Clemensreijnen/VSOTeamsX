@@ -151,6 +151,7 @@
     <Content Include="Properties\_SettingsStarted.txt" />
     <Content Include="README_FIRST.txt" />
     <Content Include="refresh.png" />
+    <Content Include="room.png" />
     <Content Include="slideout.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
