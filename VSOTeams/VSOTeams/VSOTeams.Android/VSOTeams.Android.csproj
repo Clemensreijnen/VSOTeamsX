@@ -117,6 +117,9 @@
     <AndroidResource Include="Resources\drawable-mdpi\room.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\room.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\room.png" />
+    <AndroidResource Include="Resources\Drawable\buildcompletedevent.png" />
+    <AndroidResource Include="Resources\Drawable\checkinevent.png" />
+    <AndroidResource Include="Resources\Drawable\workitemchangedevent.PNG" />
   </ItemGroup>
   <Import Project="..\VSOTeams\VSOTeams.projitems" Label="Shared" Condition="Exists('..\VSOTeams\VSOTeams.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

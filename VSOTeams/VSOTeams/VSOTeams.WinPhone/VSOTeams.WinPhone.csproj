@@ -145,6 +145,8 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="buildcompletedevent.png" />
+    <Content Include="checkinevent.png" />
     <Content Include="Icon.png" />
     <Content Include="Login-Door.png" />
     <Content Include="People.png" />
@@ -158,6 +160,7 @@
     <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Delete.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Select.png" />
+    <Content Include="workitemchangedevent.PNG" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.resx">
