@@ -126,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="about.png" />
+    <Content Include="add.png" />
     <Content Include="Assets\AlignmentGrid.png" />
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

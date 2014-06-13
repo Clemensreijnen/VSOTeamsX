@@ -16,14 +16,21 @@ namespace VSOTeams.Views
         }
         public RoomMessagesView(TeamRoom room)
         {
-
             BindingContext = new MessagesViewModel(room);
 
+            var add = new ToolbarItem
+            {
+                Command = ViewModel.LoadTeamRoomMessagesCommand,
+                Icon = "add.png",
+                Name = "Add",
+                Priority = 0
+            };
+            ToolbarItems.Add(add);
 
             Label header = new Label
             {
                 Text = room.name,
-                Font = Font.SystemFontOfSize(60),
+                Font = Font.SystemFontOfSize(36),
                 HorizontalOptions = LayoutOptions.Center
             };
 
@@ -48,14 +55,18 @@ namespace VSOTeams.Views
             listView.ItemsSource = ViewModel.TeamRoomMessages;
             listView.ItemTemplate = new DataTemplate(typeof(MessageCell));
 
-            //listView.ItemTapped += (sender, args) =>
-            //{
-            //    if (listView.SelectedItem == null)
-            //        return;
-            //    var room = listView.SelectedItem as TeamRoom;
-            //    this.Navigation.PushAsync(new RoomMessagesView(room));
-            //    listView.SelectedItem = null;
-            //};
+            listView.ItemTapped += (sender, args) =>
+            {
+                if (listView.SelectedItem == null)
+                    return;
+
+                var message = listView.SelectedItem as SimpleRoomMessage;
+                if (message.Url == "")
+                    return;
+
+                this.Navigation.PushAsync(new MessagesView(message));
+                listView.SelectedItem = null;
+            };
 
             stack.Children.Add(header);
             stack.Children.Add(listView);

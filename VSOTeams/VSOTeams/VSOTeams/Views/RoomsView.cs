@@ -22,7 +22,7 @@ namespace VSOTeams.Views
             Label header = new Label
             {
                 Text = "Teamrooms",
-                Font = Font.SystemFontOfSize(60),
+                Font = Font.SystemFontOfSize(50),
                 HorizontalOptions = LayoutOptions.Center
             };
 

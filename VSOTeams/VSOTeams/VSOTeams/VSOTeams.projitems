@@ -32,6 +32,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\BaseView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\HomeView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\LoginView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MessagesView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\ProjectsView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\RoomMessagesView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\RoomsView.cs" />
