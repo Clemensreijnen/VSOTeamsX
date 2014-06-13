@@ -64,6 +64,7 @@ namespace VSOTeams.ViewModels
                 string responseBody = await response.Content.ReadAsStringAsync();
 
                 TeamRooms allTeamRooms = JsonConvert.DeserializeObject<TeamRooms>(responseBody);
+               
                 
                 var roomsImage = new Image { Source = new FileImageSource { File = "room.png" } };
                 foreach (var room in allTeamRooms.value)

@@ -14,6 +14,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\HttpClientHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\LoginInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\RoomsCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\TeamRoomMessageCreator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\TeamRoomNotificationCreator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Project.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Team.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TeamMember.cs" />
@@ -21,6 +23,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\TeamRoomMessage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LoginViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MessagesViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ProjectsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\RoomsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\AboutView.cs" />
