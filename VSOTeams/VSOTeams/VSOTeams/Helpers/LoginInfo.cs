@@ -1,4 +1,5 @@
 ﻿
+using PCLStorage;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,16 +12,16 @@ namespace VSOTeams.Helpers
 {
     public class LoginInfo : INotifyPropertyChanged
     {
-        //Settings credentialSetttings = new Settings();
-        string _account = "Sogeti";
-        string _password = "Sogeti.1";
-        string _username = "VSOAppDev";
+        private static LoginInfo _credentials = new LoginInfo();
+
+        string _account = "";//"Sogeti";
+        string _password = "";//"Sogeti.1";
+        string _username = "";//"VSOAppDev";
 
         public string Account
         {
             get
             {
-                //_account = credentialSetttings.GetValueOrDefault("VSOAccount", string.Empty);
                 return _account; 
             }
             set
@@ -30,17 +31,13 @@ namespace VSOTeams.Helpers
                     return;
                 }
                 _account = value ?? string.Empty;
-                //credentialSetttings.AddOrUpdateValue("VSOAccount", _account);
                 OnPropertyChanged();
-
-                //this.SaveCredentials();
             }
         }
         public string UserName
         {
             get 
             {
-                //_username = credentialSetttings.GetValueOrDefault("VSOUserName", string.Empty);
                 return _username; 
             }
             set
@@ -51,17 +48,13 @@ namespace VSOTeams.Helpers
                 }
 
                 _username = value ?? string.Empty;
-                //credentialSetttings.AddOrUpdateValue("VSOUserName", _username);
                 OnPropertyChanged();
-
-              //  this.SaveCredentials();
             }
         }
         public string Password
         {
             get 
             {
-                //_password= credentialSetttings.GetValueOrDefault("VSOPassWord", string.Empty);
                 return _password; 
             }
             set
@@ -71,12 +64,36 @@ namespace VSOTeams.Helpers
                     return;
                 }
                 _password = value ?? string.Empty;
-                //credentialSetttings.AddOrUpdateValue("VSOPassWord", _password);
                 OnPropertyChanged();
             }
         }
 
 
+        internal async static Task<LoginInfo> GetCredentials()
+        {
+            if (_credentials == null)
+                _credentials = new LoginInfo();
+
+            try
+            {
+                var credentials = await LoadCredentialsIfExsist();
+
+                if (credentials != null)
+                {
+                    _credentials.Account = credentials[0];
+                    _credentials.UserName = credentials[1];
+                    _credentials.Password = credentials[2];
+                }
+                return _credentials;
+            }
+            catch (Exception)
+            {
+                _credentials.Account = "";
+                _credentials.UserName = "";
+                _credentials.Password = "";
+                return _credentials;
+            }
+        }
 
       
         public event PropertyChangedEventHandler PropertyChanged;
@@ -86,15 +103,30 @@ namespace VSOTeams.Helpers
         ///   Will set the .LoginButtonColour to a Light Blue if the user can login.
         /// </summary>
         /// <returns><c>true</c> if the user can login; otherwise, <c>false</c>.</returns>
-        public bool CanLogin()
-        {
-            
-            bool allFilled = !string.IsNullOrWhiteSpace(_account) && !string.IsNullOrWhiteSpace(_username) && !string.IsNullOrWhiteSpace(_password);
-            if(allFilled == false)
-                return false;
+        
 
-            return true;
+        public async static void SaveCredentials(string account, string userName, string password)
+        {
+            string credentialsString = string.Format("{0}, {1}, {2}", account, userName, password);
+                IFile saveCredentials = await FileHelper.GetOrCreateFileFromLocalFolder("credentials.txt");
+                await saveCredentials.WriteAllTextAsync(credentialsString);
         }
+
+        public async static Task<string[]> LoadCredentialsIfExsist()
+        {
+            var saveCredentials = await FileHelper.CheckIfFileExsistsInLocalFolder("credentials.txt");
+            if(saveCredentials == true)
+            {
+                IFile file = await FileHelper.GetOrCreateFileFromLocalFolder("credentials.txt");
+                string settingsString = file.ReadAllTextAsync().Result;
+                var credentials = settingsString.Split(new char[] {','});
+                return credentials;
+            }
+            else
+            {
+                return null;
+            }
+         }
 
 
         /// <summary>

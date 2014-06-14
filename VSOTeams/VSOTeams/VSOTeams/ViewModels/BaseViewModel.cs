@@ -57,6 +57,28 @@ namespace VSOTeams.ViewModels
             set { SetProperty(ref isBusy, value, IsBusyPropertyName); }
         }
 
+        private bool isNoteConnected;
+        /// <summary>
+        /// Gets or sets if the view is busy.
+        /// </summary>
+        public const string IsNotConnectedPropertyName = "IsNotConnected";
+        public bool IsNotConnected
+        {
+            get { return isNoteConnected; }
+            set { SetProperty(ref isNoteConnected, value, IsNotConnectedPropertyName); }
+        }
+
+        private string screenMessage;
+        /// <summary>
+        /// Gets or sets if the view is busy.
+        /// </summary>
+        public const string ScreenMessagePropertyName = "ScreenMessage";
+        public string ScreenMessage
+        {
+            get { return screenMessage; }
+            set { SetProperty(ref screenMessage, value, ScreenMessagePropertyName); }
+        }
+
         private bool canLoadMore = true;
         /// <summary>
         /// Gets or sets if we can load more.

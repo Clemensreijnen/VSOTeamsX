@@ -58,7 +58,7 @@ namespace VSOTeams.Views
 
             stack.Children.Add(header);
             stack.Children.Add(listView);
-            
+                  
             Content = stack;
 
         }

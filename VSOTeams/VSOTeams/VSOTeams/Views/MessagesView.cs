@@ -19,14 +19,9 @@ namespace VSOTeams.Views
                 HorizontalOptions = LayoutOptions.Center
             };
 
-            WebView webView = new WebView
-            {
-                Source = new UrlWebViewSource
-                {
-                    Url = item.Url
-                },
-                VerticalOptions = LayoutOptions.FillAndExpand
-            };
+            VSOTeams.Helpers.FileHelper.DownloadImage(new Uri(item.PostedByImageUrl), "asdasd");
+
+            
 
             this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
 
@@ -34,8 +29,7 @@ namespace VSOTeams.Views
             {
                 Children = 
                 {
-                    header,
-                    webView
+                    header
                 }
             };
         }

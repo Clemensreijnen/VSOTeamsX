@@ -54,7 +54,7 @@ namespace VSOTeams.ViewModels
             try
             {
                 HttpClientHelper helper = new HttpClientHelper();
-                LoginInfo _credentials = new LoginInfo();
+                var _credentials = await LoginInfo.GetCredentials();
 
                 HttpClient _httpClient = helper.CreateHttpClient(_credentials);
 

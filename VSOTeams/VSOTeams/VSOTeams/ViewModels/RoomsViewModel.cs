@@ -52,9 +52,9 @@ namespace VSOTeams.ViewModels
 
 
                 HttpClientHelper helper = new HttpClientHelper();
-                LoginInfo _credentials = new LoginInfo();
+                var _credentials = await LoginInfo.GetCredentials();
 
-                HttpClient _httpClient = helper.CreateHttpClient(_credentials);
+                HttpClient _httpClient =helper.CreateHttpClient(_credentials);
 
                 string uriString = string.Format("https://{0}.visualstudio.com/DefaultCollection/_apis/Chat/rooms", _credentials.Account);
                 Uri resourceAddress = new Uri(uriString);
@@ -78,7 +78,7 @@ namespace VSOTeams.ViewModels
             catch (Exception ex)
             {
                 var page = new ContentPage();
-                var result = page.DisplayAlert("Error", "Unable to load Visual Studio Online projects.", "OK", null);
+                var result = page.DisplayAlert("Error", "Unable to load Visual Studio Online Teamrooms.", "OK", null);
             }
 
             IsBusy = false;

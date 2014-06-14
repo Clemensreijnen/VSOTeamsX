@@ -13,6 +13,8 @@ namespace VSOTeams.Views
 
         public HomeView()
         {
+            
+
             Label header = new Label
             {
                 Text = "VSO Teams",
@@ -60,14 +62,14 @@ namespace VSOTeams.Views
             };
         }
 
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
             base.OnAppearing();
-            LoginInfo credentials = new LoginInfo();
-
-            if (credentials.Account == "" || credentials.UserName == "" || credentials.Password == "")
+            var credentials = await LoginInfo.GetCredentials();
+            
+            if (string.IsNullOrEmpty(credentials.Account) || string.IsNullOrEmpty(credentials.UserName )|| string.IsNullOrEmpty(credentials.Password ))
             {
-                this.Navigation.PushAsync(new LoginView());
+                await this.Navigation.PushAsync(new LoginView());
             }
         }
     }

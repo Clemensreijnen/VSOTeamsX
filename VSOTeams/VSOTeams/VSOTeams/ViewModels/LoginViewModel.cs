@@ -14,8 +14,10 @@ namespace VSOTeams.ViewModels
     {
         public LoginViewModel()
         {
+            IsNotConnected = true;
             Title = "Login";
-            //Icon = "blog.png";
+            ScreenMessage = "";
+            
         }
 
         private LoginInfo credentials = new LoginInfo();
@@ -37,37 +39,43 @@ namespace VSOTeams.ViewModels
                 return;
 
             IsBusy = true;
+            IsNotConnected = false;
+            ScreenMessage = "";
 
             try
             {
-                var credentialsOK = credentials.CanLogin();
+
+                HttpClientHelper helper = new HttpClientHelper();
+                HttpClient _httpClient = helper.CreateHttpClient(credentials);
+
+                var credentialsOK = await helper.IsValideCredential(credentials);
                 if (credentialsOK == true)
                 {
-                    App.IsLoggedIn = true;
-                    // de hele boel laden
+                    LoginInfo.SaveCredentials(credentials.Account, credentials.UserName, credentials.Password);
 
+                    App.IsLoggedIn = true;
                     IsBusy = false;
-                    GetMainPage();
-                }
+                    IsNotConnected = false;
+                    ScreenMessage = "Connected to VSO.";
+                } 
                 else
                 {
                     IsBusy = false;
+                    IsNotConnected = true;
+                    ScreenMessage = "Not connected, check credentials.";
                 }
-               
             }
             catch (Exception ex)
             {
-                var page = new ContentPage();
-                var error = page.DisplayAlert("Error", string.Format("Unable to connect to VSO. {0}", ex.InnerException), "OK", null).Result;
                 IsBusy = false;
+                IsNotConnected = true;
+                ScreenMessage = string.Format("Unable to connect to VSO. {0}", ex.InnerException);
+
+
             }
         }
 
-        public static Page GetMainPage()
-        {
-            var home = new HomeView();
-            return new NavigationPage(home);
-        }
+        
 
     }
 }

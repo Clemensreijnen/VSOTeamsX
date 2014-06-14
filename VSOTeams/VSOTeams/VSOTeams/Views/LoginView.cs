@@ -18,6 +18,21 @@ namespace VSOTeams.Views
             Title = "Login";
             BindingContext = new LoginViewModel();
 
+            Label header = new Label
+            {
+                Text = "Login to VSO",
+                Font = Font.SystemFontOfSize(NamedSize.Large),
+                HorizontalOptions = LayoutOptions.Center
+            };
+
+            Label message = new Label
+            {
+                Font = Font.SystemFontOfSize(NamedSize.Medium),
+                TextColor = Xamarin.Forms.Color.Red,
+                HorizontalOptions = LayoutOptions.Center
+            };
+            message.SetBinding(Label.TextProperty, "ScreenMessage");
+
             Entry accountInput = new Entry { Placeholder = "VSO Account" };
             accountInput.SetBinding(Entry.TextProperty, "Credentials.Account");
             
@@ -33,17 +48,20 @@ namespace VSOTeams.Views
             Button loginButton = new Button
             {
                 Text = "Login",
-                BorderRadius = 5,
-                TextColor = Helpers.Color.Blue.ToFormsColor(),
-                BackgroundColor = Helpers.Color.DarkBlue.ToFormsColor(),
+                BorderRadius = 0,
                 Command = ViewModel.LogMeIn
             };
 
+            loginButton.SetBinding(Button.IsEnabledProperty, "IsNotConnected");
+
+
             var stack = new StackLayout
             {
-                VerticalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Start,
                 Children =
                           {
+                              header,
+                              message,
                               accountInput,
                               loginInput,
                               passwordInput,
