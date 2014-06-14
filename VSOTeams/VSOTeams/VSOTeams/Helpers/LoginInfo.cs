@@ -14,9 +14,9 @@ namespace VSOTeams.Helpers
     {
         private static LoginInfo _credentials = new LoginInfo();
 
-        string _account = "";//"Sogeti";
-        string _password = "";//"Sogeti.1";
-        string _username = "";//"VSOAppDev";
+        string _account = "" ;
+        string _password = "";
+        string _username = "";
 
         public string Account
         {
@@ -67,6 +67,7 @@ namespace VSOTeams.Helpers
                 OnPropertyChanged();
             }
         }
+
 
 
         internal async static Task<LoginInfo> GetCredentials()

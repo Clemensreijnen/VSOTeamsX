@@ -148,8 +148,10 @@
     </Content>
     <Content Include="buildcompletedevent.png" />
     <Content Include="checkinevent.png" />
+    <Content Include="House.png" />
     <Content Include="Icon.png" />
     <Content Include="Login-Door.png" />
+    <Content Include="Login.png" />
     <Content Include="People.png" />
     <Content Include="Properties\_SettingsStarted.txt" />
     <Content Include="README_FIRST.txt" />

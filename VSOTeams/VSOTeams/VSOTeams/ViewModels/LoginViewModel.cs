@@ -12,18 +12,21 @@ namespace VSOTeams.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
-        public LoginViewModel()
+        public LoginViewModel(LoginInfo _credentials)
         {
             IsNotConnected = true;
             Title = "Login";
             ScreenMessage = "";
-            
+            credentials = _credentials;
         }
 
-        private LoginInfo credentials = new LoginInfo();
+        private LoginInfo credentials;
         public LoginInfo Credentials
         {
-            get { return credentials;  }
+            get 
+            {
+                return credentials;  
+            }
             set { credentials = value; OnPropertyChanged("Credentials"); }
         }
 

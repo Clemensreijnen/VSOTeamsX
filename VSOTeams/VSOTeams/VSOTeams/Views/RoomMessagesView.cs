@@ -18,14 +18,18 @@ namespace VSOTeams.Views
         {
             BindingContext = new MessagesViewModel(room);
 
-            var add = new ToolbarItem
+
+
+            var refresh = new ToolbarItem
             {
-                Command = ViewModel.LoadTeamRoomMessagesCommand,
-                Icon = "add.png",
-                Name = "Add",
+                Command = new Command(async () =>
+                                    await Navigation.PushAsync(new RoomsView())),
+                Icon = "refresh.png",
+                Name = "refresh",
                 Priority = 0
             };
-            ToolbarItems.Add(add);
+
+            ToolbarItems.Add(refresh);
 
             Label header = new Label
             {

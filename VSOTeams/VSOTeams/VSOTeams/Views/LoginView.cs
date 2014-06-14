@@ -12,12 +12,13 @@ namespace VSOTeams.Views
             get { return BindingContext as LoginViewModel; }
         }
 
-        public LoginView()
+        public LoginView(LoginInfo credentials)
         {
             Padding = new Thickness(20);
             Title = "Login";
-            BindingContext = new LoginViewModel();
+            BindingContext = new LoginViewModel(credentials);
 
+            
             Label header = new Label
             {
                 Text = "Login to VSO",

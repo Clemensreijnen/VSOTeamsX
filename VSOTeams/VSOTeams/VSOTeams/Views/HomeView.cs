@@ -10,11 +10,10 @@ namespace VSOTeams.Views
 {
     public class HomeView : BaseView
     {
-
+        LoginInfo credentials;
         public HomeView()
         {
             
-
             Label header = new Label
             {
                 Text = "VSO Teams",
@@ -46,6 +45,17 @@ namespace VSOTeams.Views
                             Command = new Command(async () => 
                                     await Navigation.PushAsync(new RoomsView()))
                         },
+                    },
+                     new TableSection
+                    {
+                        new ImageCell
+                        {
+                            ImageSource =  "Login.png",
+                            Text = "Login",
+                            Detail = "Set credntials and VSO account",
+                            Command = new Command(async () => 
+                                    await Navigation.PushAsync(new LoginView(credentials)))
+                        }
                     }
                 }
             };
@@ -65,11 +75,11 @@ namespace VSOTeams.Views
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            var credentials = await LoginInfo.GetCredentials();
+            credentials = await LoginInfo.GetCredentials();
             
             if (string.IsNullOrEmpty(credentials.Account) || string.IsNullOrEmpty(credentials.UserName )|| string.IsNullOrEmpty(credentials.Password ))
             {
-                await this.Navigation.PushAsync(new LoginView());
+                await this.Navigation.PushAsync(new LoginView(credentials));
             }
         }
     }
