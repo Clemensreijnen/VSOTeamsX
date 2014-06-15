@@ -50,22 +50,11 @@ namespace VSOTeams.ViewModels
             {
                 TeamRooms.Clear();
 
-
-                HttpClientHelper helper = new HttpClientHelper();
-                var _credentials = await LoginInfo.GetCredentials();
-
-                HttpClient _httpClient =helper.CreateHttpClient(_credentials);
-
-                string uriString = string.Format("https://{0}.visualstudio.com/DefaultCollection/_apis/Chat/rooms", _credentials.Account);
-                Uri resourceAddress = new Uri(uriString);
-
-                HttpResponseMessage response = await _httpClient.GetAsync(resourceAddress);
-                response.EnsureSuccessStatusCode();
-                string responseBody = await response.Content.ReadAsStringAsync();
+                string uriString = "/DefaultCollection/_apis/Chat/rooms";
+                var responseBody = await HttpClientHelper.RequestVSO(uriString);
 
                 TeamRooms allTeamRooms = JsonConvert.DeserializeObject<TeamRooms>(responseBody);
                
-                
                 var roomsImage = new Image { Source = new FileImageSource { File = "room.png" } };
                 foreach (var room in allTeamRooms.value)
                 {

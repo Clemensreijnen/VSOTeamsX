@@ -51,8 +51,8 @@ namespace VSOTeams.Views
                         new ImageCell
                         {
                             ImageSource =  "Login.png",
-                            Text = "Login",
-                            Detail = "Set credntials and VSO account",
+                            Text = "Credentials",
+                            Detail = "Set credentials and VSO account",
                             Command = new Command(async () => 
                                     await Navigation.PushAsync(new LoginView(credentials)))
                         }

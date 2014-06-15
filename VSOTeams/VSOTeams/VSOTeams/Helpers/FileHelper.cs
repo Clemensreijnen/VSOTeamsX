@@ -4,23 +4,46 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace VSOTeams.Helpers
 {
     internal static class FileHelper
     {
-        internal static async void DownloadImage(Uri Url, string fileName)
+        internal static async Task<ImageSource> DownloadImage(Uri Url, string fileName)
         {
+            ImageSource source;
+            var file = await GetFileFromLocalFolder(fileName);
+            if(file != null)
+            {
+                source = file.Path;
+                return source;
+            }
+
             IFolder storageFolder = FileSystem.Current.LocalStorage;
+            byte[] byteArray;
 
-            HttpClientHelper helper = new HttpClientHelper();
-            var _credentials =  await LoginInfo.GetCredentials();
+            var _credentials = await LoginInfo.GetCredentials();
+            var username = _credentials.UserName;
+            var password = _credentials.Password;
 
-            HttpClient _httpClient = helper.CreateHttpClient(_credentials);
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(
+                    new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
-            var byteArray = await _httpClient.GetByteArrayAsync(Url.ToString());
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic",
+                    Convert.ToBase64String(
+                        System.Text.Encoding.UTF8.GetBytes(
+                            string.Format("{0}:{1}", username, password))));
+
+                
+                byteArray = await client.GetByteArrayAsync(Url.ToString());
+            }
+
             IFile img = await GetOrCreateFileFromLocalFolder(fileName);
 
             using (var fs = await img.OpenAsync(PCLStorage.FileAccess.ReadAndWrite))
@@ -33,6 +56,10 @@ namespace VSOTeams.Helpers
                 }
                 
             }
+
+            source = img.Path;
+            return source;
+            
         }
 
         internal static async Task<IFolder> GetStorageFolder(string foldername)
@@ -86,6 +113,27 @@ namespace VSOTeams.Helpers
                 return false;
             }
         }
+
+        internal static async Task<IFile> GetFileFromLocalFolder(string fileName)
+        {
+            try
+            {
+
+                 if (await CheckIfFileExsistsInLocalFolder(fileName))
+                 {
+                     return await FileSystem.Current.LocalStorage.GetFileAsync(fileName);
+                 }
+                 else
+                 {
+                     return null;
+                 }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
 
         internal static async Task<bool> CheckIfFileExsistsInFolder(string fileName, string folderName)
         {

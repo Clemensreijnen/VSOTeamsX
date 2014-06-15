@@ -19,10 +19,6 @@ namespace VSOTeams.Views
                 HorizontalOptions = LayoutOptions.Center
             };
 
-            VSOTeams.Helpers.FileHelper.DownloadImage(new Uri(item.PostedByImageUrl), "asdasd");
-
-            
-
             this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
 
             this.Content = new StackLayout

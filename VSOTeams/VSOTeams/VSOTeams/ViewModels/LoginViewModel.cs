@@ -14,10 +14,9 @@ namespace VSOTeams.ViewModels
     {
         public LoginViewModel(LoginInfo _credentials)
         {
-            IsNotConnected = true;
             Title = "Login";
-            ScreenMessage = "";
             credentials = _credentials;
+            Saved = true;
         }
 
         private LoginInfo credentials;
@@ -33,52 +32,13 @@ namespace VSOTeams.ViewModels
         private Command logMeIn;
         public Command LogMeIn
         {
-            get { return logMeIn ?? (logMeIn = new Command(async () => await ExecuteLogMeInCommand())); }
+            get { return logMeIn ?? (logMeIn = new Command(ExecuteLogMeInCommand)); }
         }
 
-        private async Task ExecuteLogMeInCommand()
+        private void ExecuteLogMeInCommand()
         {
-            if (IsBusy)
-                return;
-
-            IsBusy = true;
-            IsNotConnected = false;
-            ScreenMessage = "";
-
-            try
-            {
-
-                HttpClientHelper helper = new HttpClientHelper();
-                HttpClient _httpClient = helper.CreateHttpClient(credentials);
-
-                var credentialsOK = await helper.IsValideCredential(credentials);
-                if (credentialsOK == true)
-                {
-                    LoginInfo.SaveCredentials(credentials.Account, credentials.UserName, credentials.Password);
-
-                    App.IsLoggedIn = true;
-                    IsBusy = false;
-                    IsNotConnected = false;
-                    ScreenMessage = "Connected to VSO.";
-                } 
-                else
-                {
-                    IsBusy = false;
-                    IsNotConnected = true;
-                    ScreenMessage = "Not connected, check credentials.";
-                }
-            }
-            catch (Exception ex)
-            {
-                IsBusy = false;
-                IsNotConnected = true;
-                ScreenMessage = string.Format("Unable to connect to VSO. {0}", ex.InnerException);
-
-
-            }
+            LoginInfo.SaveCredentials(credentials.Account, credentials.UserName, credentials.Password);
+            Saved = false;
         }
-
-        
-
     }
 }

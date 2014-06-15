@@ -15,13 +15,13 @@ namespace VSOTeams.Views
         public LoginView(LoginInfo credentials)
         {
             Padding = new Thickness(20);
-            Title = "Login";
+            Title = "Credentials";
             BindingContext = new LoginViewModel(credentials);
 
             
             Label header = new Label
             {
-                Text = "Login to VSO",
+                Text = "VSO Credentials",
                 Font = Font.SystemFontOfSize(NamedSize.Large),
                 HorizontalOptions = LayoutOptions.Center
             };
@@ -48,13 +48,12 @@ namespace VSOTeams.Views
 
             Button loginButton = new Button
             {
-                Text = "Login",
+                Text = "Save",
                 BorderRadius = 0,
                 Command = ViewModel.LogMeIn
             };
 
-            loginButton.SetBinding(Button.IsEnabledProperty, "IsNotConnected");
-
+            loginButton.SetBinding(Button.IsEnabledProperty, "Saved");
 
             var stack = new StackLayout
             {

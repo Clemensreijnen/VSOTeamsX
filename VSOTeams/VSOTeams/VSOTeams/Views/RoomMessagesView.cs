@@ -19,24 +19,23 @@ namespace VSOTeams.Views
             BindingContext = new MessagesViewModel(room);
 
 
-
-            var refresh = new ToolbarItem
-            {
-                Command = new Command(async () =>
-                                    await Navigation.PushAsync(new RoomsView())),
-                Icon = "refresh.png",
-                Name = "refresh",
-                Priority = 0
-            };
-
-            ToolbarItems.Add(refresh);
-
             Label header = new Label
             {
                 Text = room.name,
                 Font = Font.SystemFontOfSize(36),
                 HorizontalOptions = LayoutOptions.Center
             };
+
+            Label screenMessage = new Label
+            {
+                Font = Font.SystemFontOfSize(24),
+                TextColor = Xamarin.Forms.Color.Red,
+                HorizontalOptions = LayoutOptions.Center
+            };
+
+            screenMessage.SetBinding(Label.TextProperty, "MessageToShowText");
+            screenMessage.SetBinding(Label.IsVisibleProperty, "MessageToShow");
+
 
             var stack = new StackLayout
             {
@@ -65,14 +64,12 @@ namespace VSOTeams.Views
                     return;
 
                 var message = listView.SelectedItem as SimpleRoomMessage;
-                if (message.Url == "")
-                    return;
-
                 this.Navigation.PushAsync(new MessagesView(message));
                 listView.SelectedItem = null;
             };
 
             stack.Children.Add(header);
+            stack.Children.Add(screenMessage);
             stack.Children.Add(listView);
 
             Content = stack;

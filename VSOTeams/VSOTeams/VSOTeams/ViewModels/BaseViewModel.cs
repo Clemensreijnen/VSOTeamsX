@@ -57,15 +57,15 @@ namespace VSOTeams.ViewModels
             set { SetProperty(ref isBusy, value, IsBusyPropertyName); }
         }
 
-        private bool isNoteConnected;
+        private bool saved;
         /// <summary>
         /// Gets or sets if the view is busy.
         /// </summary>
-        public const string IsNotConnectedPropertyName = "IsNotConnected";
-        public bool IsNotConnected
+        public const string SavedPropertyName = "Saved";
+        public bool Saved
         {
-            get { return isNoteConnected; }
-            set { SetProperty(ref isNoteConnected, value, IsNotConnectedPropertyName); }
+            get { return saved; }
+            set { SetProperty(ref saved, value, SavedPropertyName); }
         }
 
         private string screenMessage;
@@ -79,15 +79,23 @@ namespace VSOTeams.ViewModels
             set { SetProperty(ref screenMessage, value, ScreenMessagePropertyName); }
         }
 
-        private bool canLoadMore = true;
-        /// <summary>
-        /// Gets or sets if we can load more.
-        /// </summary>
-        public const string CanLoadMorePropertyName = "CanLoadMore";
-        public bool CanLoadMore
+
+        //MessageToShow
+        private bool messageToShow = true;
+        public const string MessageToShowPropertyName = "MessageToShow";
+        public bool MessageToShow
         {
-            get { return canLoadMore; }
-            set { SetProperty(ref canLoadMore, value, CanLoadMorePropertyName); }
+            get { return messageToShow; }
+            set { SetProperty(ref messageToShow, value, MessageToShowPropertyName); }
+        }
+
+        //MessageToShow
+        private string messageToShowText = "";
+        public const string MessageToShowTextPropertyName = "MessageToShowText";
+        public string MessageToShowText
+        {
+            get { return messageToShowText; }
+            set { SetProperty(ref messageToShowText, value, MessageToShowTextPropertyName); }
         }
 
         protected void SetProperty<T>(

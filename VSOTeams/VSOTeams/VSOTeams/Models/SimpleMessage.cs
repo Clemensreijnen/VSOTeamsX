@@ -16,5 +16,7 @@ namespace VSOTeams.Models
         public TeamRoomMessage message { get; set; }
 
         public string PostedByImageUrl { get; set; }
+
+        public ImageSource PostedByImageSource { get; set; }
     }
 }

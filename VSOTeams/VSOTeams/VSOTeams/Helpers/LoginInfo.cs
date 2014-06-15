@@ -108,7 +108,7 @@ namespace VSOTeams.Helpers
 
         public async static void SaveCredentials(string account, string userName, string password)
         {
-            string credentialsString = string.Format("{0}, {1}, {2}", account, userName, password);
+            string credentialsString = string.Format("{0},{1},{2}", account, userName, password);
                 IFile saveCredentials = await FileHelper.GetOrCreateFileFromLocalFolder("credentials.txt");
                 await saveCredentials.WriteAllTextAsync(credentialsString);
         }
