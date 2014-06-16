@@ -15,7 +15,7 @@ namespace VSOTeams.Views
             Label header = new Label
             {
                 Text = "Teamroom message",
-                Font = Font.SystemFontOfSize(26),
+                Font = Font.SystemFontOfSize(NamedSize.Medium),
                 HorizontalOptions = LayoutOptions.Center
             };
 
@@ -26,7 +26,7 @@ namespace VSOTeams.Views
             {
                 Text = item.message.postedTime.ToShortDateString() + " " + item.message.postedTime.ToShortTimeString(),
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                Font = Font.SystemFontOfSize(20),
+                Font = Font.SystemFontOfSize(NamedSize.Medium),
                 LineBreakMode = LineBreakMode.WordWrap,
                 TextColor = Color.Gray
             };
@@ -36,7 +36,7 @@ namespace VSOTeams.Views
                 Text = item.Content,
                 VerticalOptions = LayoutOptions.StartAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                Font = Font.SystemFontOfSize(34),
+                Font = Font.SystemFontOfSize(NamedSize.Medium),
                 BackgroundColor = Color.Green,
                 TextColor = Color.White,
                 HeightRequest = 100
@@ -57,7 +57,7 @@ namespace VSOTeams.Views
                 {
                     Text = item.PostedByDisplayName,
                     HorizontalOptions = LayoutOptions.FillAndExpand,
-                    Font = Font.SystemFontOfSize(34),
+                    Font = Font.SystemFontOfSize(NamedSize.Medium),
                     LineBreakMode = LineBreakMode.WordWrap
                 };
 
@@ -83,7 +83,7 @@ namespace VSOTeams.Views
                 {
                     Text = "Build event",
                     HorizontalOptions = LayoutOptions.FillAndExpand,
-                    Font = Font.SystemFontOfSize(34),
+                    Font = Font.SystemFontOfSize(NamedSize.Medium),
                     LineBreakMode = LineBreakMode.WordWrap
                 };
 
@@ -101,7 +101,7 @@ namespace VSOTeams.Views
                 var buildDetails = new Label
                 {
                     Text = cnt.data.buildNumber + " " + cnt.data.buildStatus,
-                    Font = Font.SystemFontOfSize(24),
+                    Font = Font.SystemFontOfSize(NamedSize.Medium),
                     LineBreakMode = LineBreakMode.WordWrap
                 };
                 
@@ -151,7 +151,7 @@ namespace VSOTeams.Views
                 {
                     Text = "Changeset event",
                     HorizontalOptions = LayoutOptions.FillAndExpand,
-                    Font = Font.SystemFontOfSize(34),
+                    Font = Font.SystemFontOfSize(NamedSize.Medium),
                     LineBreakMode = LineBreakMode.WordWrap
                 };
 
@@ -168,7 +168,7 @@ namespace VSOTeams.Views
                 var changesetDetails = new Label
                 {
                     Text = "Changeset " + cnt.data.changeSetNumber + " by " + cnt.data.committer.displayName,
-                    Font = Font.SystemFontOfSize(20),
+                    Font = Font.SystemFontOfSize(NamedSize.Medium),
                     TextColor = Color.Gray,
                     LineBreakMode = LineBreakMode.WordWrap
                 };
@@ -188,7 +188,7 @@ namespace VSOTeams.Views
                         Text = cnt.data.changes.add.ToString(),
                         BackgroundColor = Color.Green,
                         TextColor = Color.White,
-                        Font = Font.SystemFontOfSize(20),
+                        Font = Font.SystemFontOfSize(NamedSize.Medium),
                         WidthRequest = 30,
                         XAlign = TextAlignment.Center
                     };
@@ -203,7 +203,7 @@ namespace VSOTeams.Views
                     {
                         Text = labelText,
                         TextColor = Color.Green,
-                        Font = Font.SystemFontOfSize(20)
+                        Font = Font.SystemFontOfSize(NamedSize.Medium)
                     };
                     changesStack.Children.Add(addLabel);
                     changesStack.Children.Add(addLabeltext);
@@ -216,7 +216,7 @@ namespace VSOTeams.Views
                         Text = cnt.data.changes.delete.ToString(),
                         BackgroundColor = Color.Red,
                         TextColor = Color.White,
-                        Font = Font.SystemFontOfSize(20),
+                        Font = Font.SystemFontOfSize(NamedSize.Medium),
                         WidthRequest = 30,
                         XAlign = TextAlignment.Center
 
@@ -232,7 +232,7 @@ namespace VSOTeams.Views
                     {
                         Text = labelText,
                         TextColor = Color.Red,
-                        Font = Font.SystemFontOfSize(20)
+                        Font = Font.SystemFontOfSize(NamedSize.Medium)
                     };
                     changesStack.Children.Add(deleteLabel);
                     changesStack.Children.Add(deleteLabeltext);
@@ -246,7 +246,7 @@ namespace VSOTeams.Views
                         Text = cnt.data.changes.edit.ToString(),
                         BackgroundColor = Color.Blue,
                         TextColor = Color.White,
-                        Font = Font.SystemFontOfSize(20),
+                        Font = Font.SystemFontOfSize(NamedSize.Medium),
                         WidthRequest = 30,
                         XAlign = TextAlignment.Center
 
@@ -262,7 +262,7 @@ namespace VSOTeams.Views
                     {
                         Text = labelText,
                         TextColor = Color.Blue,
-                        Font = Font.SystemFontOfSize(20),
+                        Font = Font.SystemFontOfSize(NamedSize.Medium),
                         
                     };
                     changesStack.Children.Add(editLabel);
@@ -283,7 +283,7 @@ namespace VSOTeams.Views
                 {
                     Text = "WorkItem event",
                     HorizontalOptions = LayoutOptions.FillAndExpand,
-                    Font = Font.SystemFontOfSize(34),
+                    Font = Font.SystemFontOfSize(NamedSize.Medium),
                     LineBreakMode = LineBreakMode.WordWrap
                 };
 
@@ -301,7 +301,7 @@ namespace VSOTeams.Views
                 {
                     Text = cnt.title + " " + cnt.data.stateChangedValue + " by " + cnt.data.changedBy,
                     HorizontalOptions = LayoutOptions.FillAndExpand,
-                    Font = Font.SystemFontOfSize(34),
+                    Font = Font.SystemFontOfSize(NamedSize.Medium),
                     LineBreakMode = LineBreakMode.WordWrap
                 };
 

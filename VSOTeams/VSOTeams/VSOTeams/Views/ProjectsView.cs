@@ -22,7 +22,7 @@ namespace VSOTeams.Views
             Label header = new Label
             {
                 Text = "Projects",
-                Font = Font.SystemFontOfSize(50),
+                Font = Font.SystemFontOfSize(NamedSize.Medium),
                 HorizontalOptions = LayoutOptions.Center
             };
 

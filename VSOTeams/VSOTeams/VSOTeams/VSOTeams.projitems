@@ -32,7 +32,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ProjectMembersViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ProjectsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\RoomsViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\AboutView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\BaseView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\HomeView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\LoginView.cs" />

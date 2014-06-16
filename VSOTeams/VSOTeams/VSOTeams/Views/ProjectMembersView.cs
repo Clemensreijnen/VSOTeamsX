@@ -22,13 +22,13 @@ namespace VSOTeams.Views
             Label header = new Label
             {
                 Text = prj.Name,
-                Font = Font.SystemFontOfSize(36),
+                Font = Font.SystemFontOfSize(NamedSize.Medium),
                 HorizontalOptions = LayoutOptions.Center
             };
 
             Label screenMessage = new Label
             {
-                Font = Font.SystemFontOfSize(24),
+                Font = Font.SystemFontOfSize(NamedSize.Medium),
                 TextColor = Xamarin.Forms.Color.Red,
                 HorizontalOptions = LayoutOptions.Center
             };
