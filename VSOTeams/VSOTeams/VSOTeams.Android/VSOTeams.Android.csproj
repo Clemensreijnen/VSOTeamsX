@@ -138,6 +138,7 @@
     <AndroidResource Include="Resources\Drawable\Stopped.png" />
     <AndroidResource Include="Resources\Drawable\succes.png" />
     <AndroidResource Include="Resources\Drawable\prj.png" />
+    <AndroidResource Include="Resources\Drawable\badge.png" />
   </ItemGroup>
   <Import Project="..\VSOTeams\VSOTeams.projitems" Label="Shared" Condition="Exists('..\VSOTeams\VSOTeams.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
