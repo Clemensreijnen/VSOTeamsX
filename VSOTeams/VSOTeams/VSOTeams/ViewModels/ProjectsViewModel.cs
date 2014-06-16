@@ -53,7 +53,7 @@ namespace VSOTeams.ViewModels
 
                 Projects allProjects = JsonConvert.DeserializeObject<Projects>(responseBody);
 
-                var projectImage = new Image { Source = new FileImageSource { File = "room.png" } };
+                var projectImage = new Image { Source = new FileImageSource { File = "prj.png" } };
                 foreach (var prj in allProjects.value)
                 {
                     prj.ImageUri = projectImage.Source;

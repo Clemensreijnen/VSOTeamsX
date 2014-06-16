@@ -155,6 +155,7 @@
     <Content Include="Login.png" />
     <Content Include="part.png" />
     <Content Include="People.png" />
+    <Content Include="prj.png" />
     <Content Include="Properties\_SettingsStarted.txt" />
     <Content Include="README_FIRST.txt" />
     <Content Include="refresh.png" />

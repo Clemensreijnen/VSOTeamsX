@@ -77,22 +77,25 @@ namespace VSOTeams.Droid
 			public const int part = 2130837513;
 			
 			// aapt resource value: 0x7f02000a
-			public const int refresh = 2130837514;
+			public const int prj = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int room = 2130837515;
+			public const int refresh = 2130837515;
 			
 			// aapt resource value: 0x7f02000c
-			public const int slideout = 2130837516;
+			public const int room = 2130837516;
 			
 			// aapt resource value: 0x7f02000d
-			public const int Stopped = 2130837517;
+			public const int slideout = 2130837517;
 			
 			// aapt resource value: 0x7f02000e
-			public const int succes = 2130837518;
+			public const int Stopped = 2130837518;
 			
 			// aapt resource value: 0x7f02000f
-			public const int workitemchangedevent = 2130837519;
+			public const int succes = 2130837519;
+			
+			// aapt resource value: 0x7f020010
+			public const int workitemchangedevent = 2130837520;
 			
 			static Drawable()
 			{
