@@ -10,6 +10,7 @@ namespace VSOTeams.Models
         public string PostedByDisplayName { get; set; }
         public string Content { get; set; }
         public ImageSource MessageTypeURI { get; set; }
+        public ImageSource MessageTypeURIBig { get; set; }
         public DateTime postedTime { get; set; }
         public string Url { get; set; }
 

@@ -53,8 +53,11 @@ namespace VSOTeams.ViewModels
                 }
                 IEnumerable<TeamRoomMessage> messages = teamroommessagebaselist.value;
                 var BuildCompletedEventImage = new Image { Source = new FileImageSource { File = "buildcompletedevent.png" } };
+                var BuildCompletedEventImageBig = new Image { Source = new FileImageSource { File = "1buildcompletedevent.png" } };
                 var workitemchangedeventImage = new Image { Source = new FileImageSource { File = "workitemchangedevent.png" } };
-                var checkineventImage = new Image { Source = new FileImageSource { File = "checkinevent.png" } }; 
+                var workitemchangedeventImageBig = new Image { Source = new FileImageSource { File = "1workitemchangedevent.png" } };
+                var checkineventImage = new Image { Source = new FileImageSource { File = "checkinevent.png" } };
+                var checkineventImageBig = new Image { Source = new FileImageSource { File = "1checkinevent.png" } }; 
                 
                 foreach (var item in messages)
                 {
@@ -79,12 +82,14 @@ namespace VSOTeams.ViewModels
 #endif
                         sm.PostedByImageSource = imgResult;
                         sm.MessageTypeURI = imgResult;
+                        sm.MessageTypeURIBig = imgResult;
                         TeamRoomMessages.Add(sm);
                     }
                     if(item.content is TeamRoomMessage.Content.Notification.BuildCompletedEvent)
                     {
                         var content = (TeamRoomMessage.Content.Notification.BuildCompletedEvent)item.content;
                         sm.MessageTypeURI = BuildCompletedEventImage.Source;
+                        sm.MessageTypeURIBig = BuildCompletedEventImageBig.Source;
                         sm.Url = content.url;
                         TeamRoomMessages.Add(sm);
                     }
@@ -93,6 +98,7 @@ namespace VSOTeams.ViewModels
                     {
                         var content = (TeamRoomMessage.Content.Notification.WorkItemChangedEvent)item.content;
                         sm.MessageTypeURI = workitemchangedeventImage.Source;
+                        sm.MessageTypeURIBig = workitemchangedeventImageBig.Source;
                         sm.Url = content.url;
                         TeamRoomMessages.Add(sm);
                     }
@@ -101,6 +107,7 @@ namespace VSOTeams.ViewModels
                     {
                         var content = (TeamRoomMessage.Content.Notification.CheckinEvent)item.content;
                         sm.MessageTypeURI = checkineventImage.Source;
+                        sm.MessageTypeURIBig = checkineventImageBig.Source;
                         sm.Url = content.url;
                         TeamRoomMessages.Add(sm);
                     }

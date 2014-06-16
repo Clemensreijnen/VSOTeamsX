@@ -151,6 +151,9 @@
     <BundleResource Include="Resources\Login.png" />
     <BundleResource Include="Resources\House.png" />
     <BundleResource Include="Resources\prj.png" />
+    <BundleResource Include="Resources\1workitemchangedevent.png" />
+    <BundleResource Include="Resources\1buildcompletedevent.png" />
+    <BundleResource Include="Resources\1checkinevent.png" />
   </ItemGroup>
   <Import Project="..\VSOTeams\VSOTeams.projitems" Label="Shared" Condition="Exists('..\VSOTeams\VSOTeams.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />

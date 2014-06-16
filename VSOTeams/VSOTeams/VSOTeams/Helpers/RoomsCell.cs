@@ -34,7 +34,7 @@ namespace VSOTeams.Helpers
             var nameLabel = new Label
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                Font = Font.SystemFontOfSize(NamedSize.Medium)
+                Font = Font.SystemFontOfSize(NamedSize.Large)
             };
             nameLabel.SetBinding(Label.TextProperty, "name");
             nameLabel.LineBreakMode = LineBreakMode.TailTruncation;

@@ -26,7 +26,7 @@ namespace VSOTeams.Views
             {
                 Text = item.message.postedTime.ToShortDateString() + " " + item.message.postedTime.ToShortTimeString(),
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                Font = Font.SystemFontOfSize(NamedSize.Medium),
+                Font = Font.SystemFontOfSize(NamedSize.Large),
                 LineBreakMode = LineBreakMode.WordWrap,
                 TextColor = Color.Gray
             };
@@ -36,17 +36,17 @@ namespace VSOTeams.Views
                 Text = item.Content,
                 VerticalOptions = LayoutOptions.StartAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                Font = Font.SystemFontOfSize(NamedSize.Medium),
-                BackgroundColor = Color.Green,
+                Font = Font.SystemFontOfSize(NamedSize.Large),
+                BackgroundColor = Color.Gray,
                 TextColor = Color.White,
                 HeightRequest = 100
             };
 
             var image = new Image
             {
-                HorizontalOptions = LayoutOptions.Start,
-                VerticalOptions = LayoutOptions.Start,
-                Source = item.MessageTypeURI,
+                HorizontalOptions = LayoutOptions.StartAndExpand,
+                VerticalOptions = LayoutOptions.StartAndExpand,
+                Source = item.MessageTypeURIBig,
                 WidthRequest = HeightRequest = 120
 
             };
@@ -57,7 +57,7 @@ namespace VSOTeams.Views
                 {
                     Text = item.PostedByDisplayName,
                     HorizontalOptions = LayoutOptions.FillAndExpand,
-                    Font = Font.SystemFontOfSize(NamedSize.Medium),
+                    Font = Font.SystemFontOfSize(NamedSize.Large),
                     LineBreakMode = LineBreakMode.WordWrap
                 };
 
@@ -73,7 +73,7 @@ namespace VSOTeams.Views
                 stack.Children.Add(messageHeader);
                 stack.Children.Add(messageTime);
                 stack.Children.Add(messageText);
-                stack.VerticalOptions = LayoutOptions.CenterAndExpand;
+                stack.VerticalOptions = LayoutOptions.StartAndExpand;
    
             }
             if (item.message.content is TeamRoomMessage.Content.Notification.BuildCompletedEvent)
@@ -83,7 +83,7 @@ namespace VSOTeams.Views
                 {
                     Text = "Build event",
                     HorizontalOptions = LayoutOptions.FillAndExpand,
-                    Font = Font.SystemFontOfSize(NamedSize.Medium),
+                    Font = Font.SystemFontOfSize(NamedSize.Large),
                     LineBreakMode = LineBreakMode.WordWrap
                 };
 
@@ -151,7 +151,7 @@ namespace VSOTeams.Views
                 {
                     Text = "Changeset event",
                     HorizontalOptions = LayoutOptions.FillAndExpand,
-                    Font = Font.SystemFontOfSize(NamedSize.Medium),
+                    Font = Font.SystemFontOfSize(NamedSize.Large),
                     LineBreakMode = LineBreakMode.WordWrap
                 };
 
@@ -216,7 +216,7 @@ namespace VSOTeams.Views
                         Text = cnt.data.changes.delete.ToString(),
                         BackgroundColor = Color.Red,
                         TextColor = Color.White,
-                        Font = Font.SystemFontOfSize(NamedSize.Medium),
+                        Font = Font.SystemFontOfSize(NamedSize.Large),
                         WidthRequest = 30,
                         XAlign = TextAlignment.Center
 
@@ -274,7 +274,7 @@ namespace VSOTeams.Views
                 stack.Children.Add(changesetDetails);
                 stack.Children.Add(messageText);
                 stack.Children.Add(changesStack);
-                stack.VerticalOptions = LayoutOptions.CenterAndExpand;
+                stack.VerticalOptions = LayoutOptions.StartAndExpand;
             }
 
             if (item.message.content is TeamRoomMessage.Content.Notification.WorkItemChangedEvent)
@@ -283,7 +283,7 @@ namespace VSOTeams.Views
                 {
                     Text = "WorkItem event",
                     HorizontalOptions = LayoutOptions.FillAndExpand,
-                    Font = Font.SystemFontOfSize(NamedSize.Medium),
+                    Font = Font.SystemFontOfSize(NamedSize.Large),
                     LineBreakMode = LineBreakMode.WordWrap
                 };
 
@@ -309,7 +309,7 @@ namespace VSOTeams.Views
                 stack.Children.Add(messageTime);
                 stack.Children.Add(messageText);
                 stack.Children.Add(changeText);
-                stack.VerticalOptions = LayoutOptions.CenterAndExpand;
+                stack.VerticalOptions = LayoutOptions.StartAndExpand;
    
             }
 

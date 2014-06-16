@@ -125,6 +125,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="1buildcompletedevent.png" />
+    <Content Include="1checkinevent.png" />
+    <Content Include="1workitemchangedevent.png" />
     <Content Include="about.png" />
     <Content Include="add.png" />
     <Content Include="Assets\AlignmentGrid.png" />
