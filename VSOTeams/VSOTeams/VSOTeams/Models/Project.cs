@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using Xamarin.Forms;
 
 namespace VSOTeams.Models
 {
@@ -15,7 +16,7 @@ namespace VSOTeams.Models
         public string Name { get; set; }
         public string Url { get; set; }
         public string Description { get; set; }
-
+        public ImageSource ImageUri { get; set; }
         public ObservableCollection<Team> Teams { get; set; }
 
     }

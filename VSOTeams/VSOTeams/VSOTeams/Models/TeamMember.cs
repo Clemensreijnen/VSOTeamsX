@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using Xamarin.Forms;
 
 namespace VSOTeams.Models
 {
@@ -17,7 +18,8 @@ namespace VSOTeams.Models
         public string UniqueName{ get; set; }
         public string Url { get; set; }
         public string ImageUrl { get; set; }
-        
+
+        public ImageSource ImageSource { get; set; }
         //public  ImageFile { get; set; }
 
 

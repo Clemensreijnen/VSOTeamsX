@@ -13,19 +13,14 @@ namespace VSOTeams.ViewModels
 {
     public class ProjectsViewModel : BaseViewModel
     {
+        public ObservableCollection<Project> Projects { get; set; }
+
         public ProjectsViewModel()
         {
             Title = "Projects";
+            Projects = new ObservableCollection<Project>();
         }
-
-        private ObservableCollection<Project> projects = new ObservableCollection<Project>();
-
-        public ObservableCollection<Project> Projects
-        {
-            get { return projects; }
-            set { projects = value; OnPropertyChanged("Projects"); }
-        }
-
+        
         private Project selectedProject;
         public Project SelectedProject
         {
@@ -57,7 +52,13 @@ namespace VSOTeams.ViewModels
                 var responseBody = await HttpClientHelper.RequestVSO(uriString);
 
                 Projects allProjects = JsonConvert.DeserializeObject<Projects>(responseBody);
-                projects = allProjects.value;
+
+                var projectImage = new Image { Source = new FileImageSource { File = "room.png" } };
+                foreach (var prj in allProjects.value)
+                {
+                    prj.ImageUri = projectImage.Source;
+                    Projects.Add(prj);
+                }
             }
             catch (Exception ex)
             {

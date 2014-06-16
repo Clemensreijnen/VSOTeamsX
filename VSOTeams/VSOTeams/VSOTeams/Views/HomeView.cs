@@ -31,10 +31,10 @@ namespace VSOTeams.Views
                         new ImageCell
                         {
                             ImageSource =  "refresh.png",
-                            Text = "Teams",
-                            Detail = "All my teams",
+                            Text = "Teammembers",
+                            Detail = "My teammembers in projects",
                             Command = new Command(async () => 
-                                    await Navigation.PushAsync(new TeamsView()))
+                                    await Navigation.PushAsync(new ProjectsView()))
                             
                         },
                         new ImageCell

@@ -15,7 +15,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\HttpClientHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\LoginInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\MessageCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\ProjectCell.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\RoomsCell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\TeamMemberCell.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\TeamRoomMessageCreator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\TeamRoomNotificationCreator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Project.cs" />
@@ -27,6 +29,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LoginViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MessagesViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ProjectMembersViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ProjectsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\RoomsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\AboutView.cs" />
@@ -34,10 +37,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\HomeView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\LoginView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\MessagesView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ProjectMembersView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\ProjectsView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\RoomMessagesView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\RoomsView.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\TeamsView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)DataModels\" />
