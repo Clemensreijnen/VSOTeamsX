@@ -1,21 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace VSOTeams.Helpers
 {
     internal static class HttpClientHelper
     {
-        internal static void CreateHttpClient(ref HttpClient httpClient)
+
+        internal static async Task<string> RequestVSO(string requestUri)
         {
-            LoginInfo _credentials = new LoginInfo();
+            var _credentials = await LoginInfo.GetCredentials();
+            var username = _credentials.UserName;
+            var password = _credentials.Password;
 
-            if (httpClient != null)
+            string uriString = string.Format("https://{0}.visualstudio.com", _credentials.Account);
+            uriString = uriString + requestUri;
+
+            using (HttpClient client = new HttpClient())
             {
-                httpClient.Dispose();
-            }
+                client.DefaultRequestHeaders.Accept.Add(
+                    new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic",
+                    Convert.ToBase64String(
+                        System.Text.Encoding.UTF8.GetBytes(
+                            string.Format("{0}:{1}", username, password))));
+
+                HttpResponseMessage response = await client.GetAsync(uriString);
+
+                response.EnsureSuccessStatusCode();
+                return await response.Content.ReadAsStringAsync();
+            }
         }
+
+
     }
 }
