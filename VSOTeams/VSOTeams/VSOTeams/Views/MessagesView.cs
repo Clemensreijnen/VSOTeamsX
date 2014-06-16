@@ -142,7 +142,7 @@ namespace VSOTeams.Views
                 stack.Children.Add(messageTime);
                 stack.Children.Add(messageText);
                 stack.Children.Add(messageDetails);
-                stack.VerticalOptions = LayoutOptions.CenterAndExpand;
+                stack.VerticalOptions = LayoutOptions.StartAndExpand;
             }
 
             if (item.message.content is TeamRoomMessage.Content.Notification.CheckinEvent)

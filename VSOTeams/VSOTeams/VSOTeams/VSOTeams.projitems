@@ -29,6 +29,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LoginViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MessagesViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\PostMessageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ProjectMembersViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ProjectsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\RoomsViewModel.cs" />
@@ -36,6 +37,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\HomeView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\LoginView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\MessagesView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\PostMessageView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\ProjectMembersView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\ProjectsView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\RoomMessagesView.cs" />

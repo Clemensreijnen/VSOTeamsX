@@ -23,7 +23,15 @@ namespace VSOTeams.Views
             {
                 Text = room.name,
                 Font = Font.SystemFontOfSize(NamedSize.Medium),
-                HorizontalOptions = LayoutOptions.Center
+                HorizontalOptions = LayoutOptions.Center,
+            };
+
+            Button postMesageToRoom = new Button
+            {
+                Text = "Post Message",
+                Font = Font.SystemFontOfSize(NamedSize.Medium),
+                Command = new Command(async () =>
+                    await Navigation.PushAsync(new PostMessageView(room)))
             };
 
             Label screenMessage = new Label
@@ -69,6 +77,7 @@ namespace VSOTeams.Views
             };
 
             stack.Children.Add(header);
+            stack.Children.Add(postMesageToRoom);
             stack.Children.Add(screenMessage);
             stack.Children.Add(listView);
 
