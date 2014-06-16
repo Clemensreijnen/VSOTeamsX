@@ -44,7 +44,7 @@ namespace VSOTeams.Helpers
                 byteArray = await client.GetByteArrayAsync(Url.ToString());
             }
 
-            IFile img = await GetOrCreateFileFromLocalFolder(fileName);
+            IFile img = GetOrCreateFileFromLocalFolder(fileName);
 
             using (var fs = await img.OpenAsync(PCLStorage.FileAccess.ReadAndWrite))
             {
@@ -164,7 +164,7 @@ namespace VSOTeams.Helpers
         }
 
 
-        internal static async Task<IFile> GetOrCreateFileFromLocalFolder(string fileName)
+        internal static IFile GetOrCreateFileFromLocalFolder(string fileName)
         {
             try
             {

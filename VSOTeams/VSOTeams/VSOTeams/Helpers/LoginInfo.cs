@@ -109,16 +109,16 @@ namespace VSOTeams.Helpers
         public async static void SaveCredentials(string account, string userName, string password)
         {
             string credentialsString = string.Format("{0},{1},{2}", account, userName, password);
-                IFile saveCredentials = await FileHelper.GetOrCreateFileFromLocalFolder("credentials.txt");
+                IFile saveCredentials = FileHelper.GetOrCreateFileFromLocalFolder("credentials.txt");
                 await saveCredentials.WriteAllTextAsync(credentialsString);
         }
 
         public async static Task<string[]> LoadCredentialsIfExsist()
         {
-            var saveCredentials = await FileHelper.CheckIfFileExsistsInLocalFolder("credentials.txt");
+            var saveCredentials =await FileHelper.CheckIfFileExsistsInLocalFolder("credentials.txt");
             if(saveCredentials == true)
             {
-                IFile file = await FileHelper.GetOrCreateFileFromLocalFolder("credentials.txt");
+                IFile file = FileHelper.GetOrCreateFileFromLocalFolder("credentials.txt");
                 string settingsString = file.ReadAllTextAsync().Result;
                 var credentials = settingsString.Split(new char[] {','});
                 return credentials;

@@ -148,16 +148,20 @@
     </Content>
     <Content Include="buildcompletedevent.png" />
     <Content Include="checkinevent.png" />
+    <Content Include="Failed.png" />
     <Content Include="House.png" />
     <Content Include="Icon.png" />
     <Content Include="Login-Door.png" />
     <Content Include="Login.png" />
+    <Content Include="part.png" />
     <Content Include="People.png" />
     <Content Include="Properties\_SettingsStarted.txt" />
     <Content Include="README_FIRST.txt" />
     <Content Include="refresh.png" />
     <Content Include="room.png" />
     <Content Include="slideout.png" />
+    <Content Include="succes.png" />
+    <Content Include="Stopped.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
