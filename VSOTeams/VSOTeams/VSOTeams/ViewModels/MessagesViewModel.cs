@@ -53,11 +53,11 @@ namespace VSOTeams.ViewModels
                 }
                 IEnumerable<TeamRoomMessage> messages = teamroommessagebaselist.value;
                 var BuildCompletedEventImage = new Image { Source = new FileImageSource { File = "buildcompletedevent.png" } };
-                var BuildCompletedEventImageBig = new Image { Source = new FileImageSource { File = "1buildcompletedevent.png" } };
+                var BuildCompletedEventImageBig = new Image { Source = new FileImageSource { File = "buildcompletedevent1.png" } };
                 var workitemchangedeventImage = new Image { Source = new FileImageSource { File = "workitemchangedevent.png" } };
-                var workitemchangedeventImageBig = new Image { Source = new FileImageSource { File = "1workitemchangedevent.png" } };
+                var workitemchangedeventImageBig = new Image { Source = new FileImageSource { File = "workitemchangedevent1.png" } };
                 var checkineventImage = new Image { Source = new FileImageSource { File = "checkinevent.png" } };
-                var checkineventImageBig = new Image { Source = new FileImageSource { File = "1checkinevent.png" } }; 
+                var checkineventImageBig = new Image { Source = new FileImageSource { File = "checkinevent1.png" } }; 
                 
                 foreach (var item in messages)
                 {

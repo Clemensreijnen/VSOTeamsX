@@ -125,9 +125,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="1buildcompletedevent.png" />
-    <Content Include="1checkinevent.png" />
-    <Content Include="1workitemchangedevent.png" />
     <Content Include="about.png" />
     <Content Include="add.png" />
     <Content Include="Assets\AlignmentGrid.png" />
@@ -150,7 +147,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="buildcompletedevent.png" />
+    <BundleResource Include="buildcompletedevent1.png" />
     <Content Include="checkinevent.png" />
+    <BundleResource Include="checkinevent1.png" />
     <Content Include="Failed.png" />
     <Content Include="House.png" />
     <Content Include="Icon.png" />
@@ -172,6 +171,7 @@
     <Content Include="Toolkit.Content\ApplicationBar.Delete.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Select.png" />
     <Content Include="workitemchangedevent.PNG" />
+    <BundleResource Include="workitemchangedevent1.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.resx">
