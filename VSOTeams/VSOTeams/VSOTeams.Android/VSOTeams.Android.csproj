@@ -130,7 +130,20 @@
     <BundleResource Include="Resources\Drawable\buildcompletedevent1.png" />
     <BundleResource Include="Resources\Drawable\checkinevent1.png" />
     <BundleResource Include="Resources\Drawable\workitemchangedevent1.png" />
+    <BundleResource Include="Resources\drawable-hdpi\about.png" />
+    <BundleResource Include="Resources\drawable-hdpi\refresh.png" />
+    <BundleResource Include="Resources\drawable-hdpi\room.png" />
+    <BundleResource Include="Resources\drawable-mdpi\about.png" />
+    <BundleResource Include="Resources\drawable-mdpi\refresh.png" />
+    <BundleResource Include="Resources\drawable-mdpi\room.png" />
+    <BundleResource Include="Resources\drawable-xhdpi\about.png" />
+    <BundleResource Include="Resources\drawable-xhdpi\refresh.png" />
+    <BundleResource Include="Resources\drawable-xhdpi\room.png" />
+    <BundleResource Include="Resources\drawable-xxhdpi\about.png" />
+    <BundleResource Include="Resources\drawable-xxhdpi\refresh.png" />
+    <BundleResource Include="Resources\drawable-xxhdpi\room.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="..\VSOTeams\VSOTeams.projitems" Label="Shared" Condition="Exists('..\VSOTeams\VSOTeams.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
