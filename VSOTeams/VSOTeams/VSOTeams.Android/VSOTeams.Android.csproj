@@ -135,6 +135,13 @@
     <AndroidResource Include="Resources\Drawable\1checkinevent.png" />
     <AndroidResource Include="Resources\Drawable\1workitemchangedevent.png" />
     <AndroidResource Include="Resources\Drawable\1buildcompletedevent.png" />
+    <BundleResource Include="Resources\drawable-hdpi\refresh.png" />
+    <BundleResource Include="Resources\drawable-mdpi\about.png" />
+    <BundleResource Include="Resources\drawable-mdpi\refresh.png" />
+    <BundleResource Include="Resources\drawable-xhdpi\about.png" />
+    <BundleResource Include="Resources\drawable-xhdpi\refresh.png" />
+    <BundleResource Include="Resources\drawable-xxhdpi\about.png" />
+    <BundleResource Include="Resources\drawable-xxhdpi\refresh.png" />
   </ItemGroup>
   <Import Project="..\VSOTeams\VSOTeams.projitems" Label="Shared" Condition="Exists('..\VSOTeams\VSOTeams.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
