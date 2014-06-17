@@ -155,7 +155,7 @@
     <Content Include="House.png" />
     <Content Include="Icon.png" />
     <Content Include="Login-Door.png" />
-    <Content Include="Login.png" />
+    <BundleResource Include="Login.png" />
     <Content Include="part.png" />
     <Content Include="People.png" />
     <Content Include="prj.png" />

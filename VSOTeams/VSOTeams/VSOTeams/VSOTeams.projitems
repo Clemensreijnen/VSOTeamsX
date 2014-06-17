@@ -43,4 +43,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\RoomMessagesView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\RoomsView.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)TextFile.txt" />
+  </ItemGroup>
 </Project>

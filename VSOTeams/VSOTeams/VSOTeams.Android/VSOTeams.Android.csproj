@@ -112,13 +112,6 @@
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\Drawable\slideout.png" />
     <AndroidResource Include="Resources\drawable-hdpi\about.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\refresh.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\about.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\refresh.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\about.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\refresh.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\about.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\refresh.png" />
     <Content Include="Properties\_SettingsStarted.txt" />
     <AndroidResource Include="Resources\Drawable\about.png" />
     <AndroidResource Include="Resources\Drawable\refresh.png" />
